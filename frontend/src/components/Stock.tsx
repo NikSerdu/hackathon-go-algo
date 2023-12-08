@@ -16,7 +16,7 @@ const Stock: FC<TypeData> = ({ data }) => {
     price,
     title,
   } = data;
-  const [state, setState] = useState({
+  const [state] = useState({
     series: [
       {
         name: "Stock",
@@ -85,6 +85,7 @@ const Stock: FC<TypeData> = ({ data }) => {
         </div>
         <div className="">
           <Chart
+            //@ts-ignore
             options={state.options}
             series={state.series}
             type="line"

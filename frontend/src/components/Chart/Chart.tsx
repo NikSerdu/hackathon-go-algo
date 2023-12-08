@@ -58,6 +58,7 @@ const StockChart: FC<TypeData> = ({ data, index }) => {
   return (
     <div className="bg-white rounded-xl p-5 h-full flex gap-3 justify-center">
       <Chart
+        //@ts-ignore
         options={state.options}
         series={state.series}
         type="line"
