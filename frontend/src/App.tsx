@@ -82,6 +82,7 @@ function App() {
             {chartData && (
               <StockChart
                 data={data[index]}
+                //@ts-ignore
                 chartData={chartData.data}
                 index={index}
               />

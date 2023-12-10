@@ -7,12 +7,12 @@ type TypeData = {
   data: IStock;
 };
 const Stock: FC<TypeData> = ({ data }) => {
-  const { categories, data1, difference, img, isIncrease, price, title } = data;
+  const { difference, img, isIncrease, price, title } = data;
   const [state] = useState({
     series: [
       {
         name: "Stock",
-        data: data1,
+        data: [10, 41, 5, 51, 49, 62, 20, 91, 148],
       },
     ],
     options: {
@@ -37,7 +37,17 @@ const Stock: FC<TypeData> = ({ data }) => {
         show: false, // Hide the background grid
       },
       xaxis: {
-        categories: categories,
+        categories: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+        ],
         labels: {
           show: false, // Hide x-axis labels
         },
