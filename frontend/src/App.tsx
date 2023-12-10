@@ -39,16 +39,6 @@ const data = [
     ticker: "TATN",
     buy: false,
   },
-  {
-    id: 3,
-    title: "Tinkoff",
-    price: "$10,000",
-    isIncrease: false,
-    difference: 0.25,
-    img: "tinkoff.png",
-    ticker: "SBER",
-    buy: true,
-  },
 ];
 
 function App() {
