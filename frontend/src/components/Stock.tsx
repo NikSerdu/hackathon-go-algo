@@ -75,7 +75,7 @@ const Stock: FC<TypeData> = ({ data }) => {
       </div>
       <div className="flex items-center ">
         <div className="">
-          <p className="text-lg font-bold">{price}</p>
+          <p className="text-lg font-bold">₽ {price}</p>
           <p
             className={cn({
               "text-green-600": isIncrease,

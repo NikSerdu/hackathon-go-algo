@@ -70,7 +70,7 @@ const StockChart: FC<TypeData> = ({ data, index, chartData }) => {
       />
       <div className="mx-auto  text-2xl">
         <h1 className="font-bold">{title}</h1>
-        <h1 className="font-semibold">{price}</h1>
+        <h1 className="font-semibold">₽ {price}</h1>
         <div className="flex gap-3 items-end">
           <p>К покупке:</p>
           {buy ? (
