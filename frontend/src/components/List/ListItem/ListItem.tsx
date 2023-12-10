@@ -26,7 +26,7 @@ const ListItem: FC<TypeData> = ({ data, onClick, index }) => {
         </div>
         <div className="flex flex-col justify-between ml-3">
           <p className="font-bold">{title}</p>
-          <p className="text-slate-500">{price}</p>
+          <p className="text-slate-500">₽ {price}</p>
         </div>
       </div>
       <div className="">

@@ -11,8 +11,8 @@ import { StockService } from "./services/stock.service";
 const data = [
   {
     id: 0,
-    title: "Sber",
-    price: "$10,000",
+    title: "SBER",
+    price: "265,04",
     isIncrease: true,
     difference: 0.25,
     img: "sber.png",
@@ -21,20 +21,20 @@ const data = [
   },
   {
     id: 1,
-    title: "Tinkoff",
-    price: "$10,000",
+    title: "TCSG",
+    price: "265,04",
     isIncrease: false,
-    difference: 0.25,
+    difference: 0.84,
     img: "tinkoff.png",
     ticker: "MOEX",
     buy: true,
   },
   {
     id: 2,
-    title: "Yandex",
-    price: "$10,000",
+    title: "YNDX",
+    price: "198,33",
     isIncrease: true,
-    difference: 0.25,
+    difference: 0.37,
     img: "yandex.png",
     ticker: "TATN",
     buy: false,
@@ -42,9 +42,9 @@ const data = [
   {
     id: 3,
     title: "POLY",
-    price: "$10,000",
+    price: "637,10",
     isIncrease: false,
-    difference: 0.25,
+    difference: 0.15,
     img: "poly.jpg",
     ticker: "SBER",
     buy: true,
@@ -76,7 +76,7 @@ function App() {
           ))}
         </div>
         <div className="flex gap-10 mt-10 h-[400px]">
-          <div className="w-1/5">
+          <div className="w-[300px]">
             <List data={data} handleClick={handleClick} index={index} />
           </div>
           <div className="w-4/5">

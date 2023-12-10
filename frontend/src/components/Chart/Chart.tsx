@@ -41,7 +41,7 @@ const StockChart: FC<TypeData> = ({ data, index, chartData }) => {
         show: false, // Hide the background grid
       },
       xaxis: {
-        categories: time.map((item) => item.slice(11)),
+        categories: time.map((item) => item.slice(11, 16)),
       },
       yaxis: {},
     },
