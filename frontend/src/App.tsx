@@ -54,6 +54,7 @@ const data = [
 function App() {
   const [ticker, setTicker] = useState("SBER");
   const [index, setIndex] = useState(0);
+  //@ts-ignore
   const handleClick = (ticker: string, index: number) => {
     setIndex(index);
   };
