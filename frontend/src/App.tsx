@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import "./App.css";
 import StockChart from "./components/Chart/Chart";
 import Container from "./components/Container";
 import List from "./components/List/List";
 import News from "./components/News/News";
 import Stock from "./components/Stock";
+import { StockService } from "./services/stock.service";
 
 const data = [
   {
@@ -13,9 +15,9 @@ const data = [
     price: "$10,000",
     isIncrease: true,
     difference: 0.25,
-    data: [10, 41, 5, 51, 49, 62, 20, 91, 148],
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
     img: "sber.png",
+    ticker: "SBER",
+    buy: false,
   },
   {
     id: 1,
@@ -23,9 +25,9 @@ const data = [
     price: "$10,000",
     isIncrease: false,
     difference: 0.25,
-    data: [20, 15, 5, 51, 80, 62, 4, 91, 120],
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
     img: "tinkoff.png",
+    ticker: "MOEX",
+    buy: true,
   },
   {
     id: 2,
@@ -33,9 +35,9 @@ const data = [
     price: "$10,000",
     isIncrease: true,
     difference: 0.25,
-    data: [4, 3, 1, 20, 30, 9, 8, 11, 10],
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
     img: "yandex.png",
+    ticker: "TATN",
+    buy: false,
   },
   {
     id: 3,
@@ -43,16 +45,26 @@ const data = [
     price: "$10,000",
     isIncrease: false,
     difference: 0.25,
-    data: [14, 18, 54, 11, 20, 2, 40, 45, 6],
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
     img: "tinkoff.png",
+    ticker: "SBER",
+    buy: true,
   },
 ];
 
 function App() {
+  const [ticker, setTicker] = useState("SBER");
   const [index, setIndex] = useState(0);
+  const handleClick = (ticker: string, index: number) => {
+    setIndex(index);
+  };
+  const { data: chartData, refetch } = useQuery("Get data", () =>
+    StockService.getData(ticker)
+  );
   useEffect(() => {
-    console.log(index);
+    refetch();
+  }, [ticker]);
+  useEffect(() => {
+    setTicker(data[index].ticker);
   }, [index]);
   return (
     <div className="">
@@ -64,10 +76,16 @@ function App() {
         </div>
         <div className="flex gap-10 mt-10 h-[400px]">
           <div className="w-1/5">
-            <List data={data} setIndex={setIndex} index={index} />
+            <List data={data} handleClick={handleClick} index={index} />
           </div>
           <div className="w-4/5">
-            <StockChart data={data[index]} index={index} />
+            {chartData && (
+              <StockChart
+                data={data[index]}
+                chartData={chartData.data}
+                index={index}
+              />
+            )}
           </div>
         </div>
       </Container>

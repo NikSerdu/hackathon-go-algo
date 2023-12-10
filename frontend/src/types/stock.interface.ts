@@ -4,7 +4,7 @@ export interface IStock {
   price: string;
   isIncrease: boolean;
   difference: number;
-  data: number[];
-  categories: string[];
   img: string;
+  ticker: string;
+  buy: boolean;
 }

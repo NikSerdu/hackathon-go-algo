@@ -4,12 +4,12 @@ import { IStock } from "../../../types/stock.interface";
 
 type TypeData = {
   data: IStock;
-  setIndex: (id: number) => void;
+  onClick: (ticker: string, index: number) => void;
   index: number;
 };
 
-const ListItem: FC<TypeData> = ({ data, setIndex, index }) => {
-  const { difference, img, isIncrease, price, title, id } = data;
+const ListItem: FC<TypeData> = ({ data, onClick, index }) => {
+  const { difference, img, isIncrease, price, title, id, ticker } = data;
   return (
     <div
       className={cn(
@@ -18,7 +18,7 @@ const ListItem: FC<TypeData> = ({ data, setIndex, index }) => {
           "bg-slate-200": index === id,
         }
       )}
-      onClick={() => setIndex(id)}
+      onClick={() => onClick(ticker, id)}
     >
       <div className="flex justify-between items-center">
         <div className="">

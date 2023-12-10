@@ -7,20 +7,12 @@ type TypeData = {
   data: IStock;
 };
 const Stock: FC<TypeData> = ({ data }) => {
-  const {
-    categories,
-    data: chartData,
-    difference,
-    img,
-    isIncrease,
-    price,
-    title,
-  } = data;
+  const { categories, data1, difference, img, isIncrease, price, title } = data;
   const [state] = useState({
     series: [
       {
         name: "Stock",
-        data: chartData,
+        data: data1,
       },
     ],
     options: {

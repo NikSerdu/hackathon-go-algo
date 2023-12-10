@@ -4,11 +4,11 @@ import ListItem from "./ListItem/ListItem";
 
 type TypeData = {
   data: IStock[];
-  setIndex: (id: number) => void;
+  handleClick: (ticker: string, index: number) => void;
   index: number;
 };
 
-const List: FC<TypeData> = ({ data, setIndex, index }) => {
+const List: FC<TypeData> = ({ data, handleClick, index }) => {
   return (
     <div className="bg-white rounded-xl p-5 max-w-xs h-full">
       <h1 className="font-bold text-xl">List</h1>
@@ -17,7 +17,7 @@ const List: FC<TypeData> = ({ data, setIndex, index }) => {
           <ListItem
             data={item}
             key={item.id}
-            setIndex={setIndex}
+            onClick={handleClick}
             index={index}
           />
         ))}

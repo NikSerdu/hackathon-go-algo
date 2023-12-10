@@ -1,19 +1,23 @@
 import { FC, useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegCircleXmark } from "react-icons/fa6";
+import { ITickerData } from "../../services/stock.service";
 import { IStock } from "../../types/stock.interface";
 type TypeData = {
+  chartData: ITickerData;
   data: IStock;
   index: number;
 };
 
-const StockChart: FC<TypeData> = ({ data, index }) => {
-  const { categories, data: stockData, title, price } = data;
+const StockChart: FC<TypeData> = ({ data, index, chartData }) => {
+  const { price: chartPrice, time } = chartData;
+  const { title, price, buy } = data;
   const [state, setState] = useState({
     series: [
       {
         name: "Stock",
-        data: stockData,
+        data: chartPrice,
       },
     ],
     options: {
@@ -37,7 +41,7 @@ const StockChart: FC<TypeData> = ({ data, index }) => {
         show: false, // Hide the background grid
       },
       xaxis: {
-        categories: categories,
+        categories: time,
       },
       yaxis: {},
     },
@@ -49,7 +53,7 @@ const StockChart: FC<TypeData> = ({ data, index }) => {
       series: [
         {
           name: "Stock",
-          data: stockData,
+          data: chartPrice,
         },
       ],
     }));
@@ -69,9 +73,15 @@ const StockChart: FC<TypeData> = ({ data, index }) => {
         <h1 className="font-semibold">{price}</h1>
         <div className="flex gap-3 items-end">
           <p>К покупке:</p>
-          <div className="text-green-600">
-            <FaRegCheckCircle />
-          </div>
+          {buy ? (
+            <div className="text-green-600">
+              <FaRegCheckCircle />
+            </div>
+          ) : (
+            <div className="text-red-600">
+              <FaRegCircleXmark />
+            </div>
+          )}
         </div>
       </div>
     </div>
