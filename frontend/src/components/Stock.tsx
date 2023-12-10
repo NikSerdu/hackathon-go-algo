@@ -82,7 +82,7 @@ const Stock: FC<TypeData> = ({ data }) => {
               "text-red-600": !isIncrease,
             })}
           >
-            {isIncrease ? `+ ${difference}` : `- ${difference}`}
+            {isIncrease ? `+ ${difference}%` : `- ${difference}%`}
           </p>
         </div>
         <div className="">

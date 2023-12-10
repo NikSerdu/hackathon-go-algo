@@ -36,7 +36,7 @@ const ListItem: FC<TypeData> = ({ data, onClick, index }) => {
             "text-green-600": isIncrease,
           })}
         >
-          {isIncrease ? `+${difference}` : `-${difference}`}
+          {isIncrease ? `+${difference}%` : `-${difference}%`}
         </p>
       </div>
     </div>
