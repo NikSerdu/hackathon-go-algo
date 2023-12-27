@@ -1,3 +1,5 @@
+![image](https://github.com/NikSerdu/hackathon-go-algo/assets/125663119/683d0d1b-c827-48e6-9f3b-6a2cc05de2b1)
+
 # Установка
 
 ## Frontend
