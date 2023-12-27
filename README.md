@@ -1,4 +1,4 @@
-![image](https://github.com/NikSerdu/hackathon-go-algo/assets/125663119/683d0d1b-c827-48e6-9f3b-6a2cc05de2b1)
+https://github.com/NikSerdu/hackathon-go-algo/assets/125663119/165336b1-6991-4388-92ad-7e5aed88a889
 
 # Установка
 
